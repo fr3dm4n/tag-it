@@ -76,6 +76,10 @@
             // If this is not set, we create an input node for it,
             // with the name given in settings.fieldName.
             singleFieldNode: null,
+            
+            // If true, Commas can be used to commit a tag
+            // If this is set to false, you can set values with Comma, like numbers in some Countries
+            commaCommitment: true,
 
             // Whether to animate tag removals or not.
             animate: true,
@@ -241,7 +245,7 @@
                     // Tab will also create a tag, unless the tag input is empty,
                     // in which case it isn't caught.
                     if (
-                        (event.which === $.ui.keyCode.COMMA && event.shiftKey === false) ||
+                        (that.options.commaCommitment && event.which === $.ui.keyCode.COMMA && event.shiftKey === false) ||
                         event.which === $.ui.keyCode.ENTER ||
                         (
                             event.which == $.ui.keyCode.TAB &&
